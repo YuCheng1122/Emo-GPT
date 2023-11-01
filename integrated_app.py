@@ -147,7 +147,8 @@ def upload_file():
     file = request.files['file']
     if file and isinstance(file.filename, str):
         safe_filename = re.sub('[^a-zA-Z0-9.]+', '_', file.filename)
-        file_path = os.path.join('/Users/ro9air/VScode/Flask_API_TIM/Server_Recive_file', safe_filename) # type: ignore
+        #改成相對路徑
+        file_path = os.path.join('./Server_Recive_file', safe_filename) # type: ignore
         file.save(file_path)
         
         # Call your SER API here
